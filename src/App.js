@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SinIn from './componects/Sinin';
+import Dash from './Pages/Dash';
+import Generaldetail from './Pages/Generaldetails/Generaldetail';
+import Experience from './Pages/Generaldetails/Expreience';
+import Skills from './Pages/Generaldetails/Skills';
+import Ho from './componects/Ho';
+import About from './componects/About';
+import { Message } from './componects/Messages';
+import { Profile } from './componects/Profile';
+import EditProfile from './Pages/Generaldetails/Editprofile';
+import Organizationdetails from './Pages/Organizationaldetails/OrganizationDetail';
+import Sinup from './componects/Sinup';
+import Applicntsinup from './Pages/Generaldetails/Applicntsinup';
+import Applicntsinin from './Pages/Generaldetails/ApplicntSinin';
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <div>
+      <BrowserRouter>
+        <Routes>
+          {/* <Route path="/" element={<SinIn />} /> */}
+          <Route path="/home" element={<Ho />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/message" element={<Message />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/editprofile" element={<EditProfile />} />
 
-export default App;
+
+          {/* <Route path="/sinup" element={<Sinup />} /> */}
+          <Route path="/" element={<Dash />} />
+          <Route path="/dash/applicant/applicntsinin" element={<Applicntsinin />} />
+
+          <Route path="/dash/applicant/applicntsinup" element={<Applicntsinup />} />
+
+          <Route path="/dash/:id/applicant/generaldata" element={<Generaldetail />} />
+          <Route path="/applicant/generaldata/experience" element={<Experience />} />
+          <Route path="/applicant/generaldata/experience/skills" element={<Skills />} />
+
+
+          <Route path="/organization/Organizationdetails" element={<Organizationdetails />} />
+
+
+
+
+
+        </Routes>
+      </BrowserRouter>
+    </div>
+  )
+}
